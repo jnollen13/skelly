@@ -1,0 +1,30 @@
+{
+    "name": "Skelly",
+    "description": "adds a little skeleton in the corner of the screen that says stuff occasionally. has customizable speech.",
+    "dependencies": {
+        "device": "*",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "skellyAI.ts",
+        "images.g.jres",
+        "images.g.ts",
+        "SkellySpriteKind.ts",
+        "LICENSE.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "4.0.14",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
