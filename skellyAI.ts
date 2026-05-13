@@ -310,6 +310,7 @@ namespace skellyAI {
                 skelly.startEffect(effect, duration)
             }
             if(addOrClear==ApplyEffects.Single){
+                effects.clearParticles(skelly)
                 skelly.startEffect(effect, duration)
             }
         }
