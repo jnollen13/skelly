@@ -173,7 +173,7 @@ namespace skellyAI {
      * 
      * @param effect what effect will happen when skelly is removed
      * @param duration the duration for the effect the skelly gets destroyed with, eg: 50
- */
+     */
     //% blockId=removeSkelly
     //% block="remove Skelly || with %effect effect for %duration ms"
     //% duration.shadow=timePicker
@@ -217,7 +217,7 @@ namespace skellyAI {
         if (skellyspeech4 != null) {
             word4 = skellyspeech4
         }
-        if (skellyspeech2 != null) {
+        if (skellyspeech5 != null) {
             word5 = skellyspeech5
         }
     }
@@ -303,9 +303,11 @@ namespace skellyAI {
         //check if skelly exists
         if(hasbeencalculating){
             //add effects
-            skelly.startEffect(effect, duration)
             if(addOrClear==ApplyEffects.Remove){
                 effects.clearParticles(skelly)
+            }
+            if(addOrClear==ApplyEffects.Apply){
+                skelly.startEffect(effect, duration)
             }
             if(addOrClear==ApplyEffects.Single){
                 skelly.startEffect(effect, duration)
