@@ -23,7 +23,6 @@ enum ApplyEffects{
 //% groups='["Life", "Speech", "Utill", "Visuals"]'
 //% blockGap=8
 namespace skellyAI {
-    
     export function happy(skely: Sprite): void {
         let wordsToSpeak = null
         let randomWordPicker = randint(1, 5)
@@ -206,19 +205,19 @@ namespace skellyAI {
     //% help=skellyAI/skelly-text
     //% group="Speech"
     export function skellyText(skellyspeech1: string, skellyspeech2: string, skellyspeech3: string, skellyspeech4: string, skellyspeech5: string,) {
-        if (!skellyspeech1 == null) {
+        if (skellyspeech1 != null) {
             word1 = skellyspeech1
         }
-        if (!skellyspeech2 == null) {
+        if (skellyspeech2 != null) {
             word2 = skellyspeech2
         }
-        if (!skellyspeech3 == null) {
+        if (skellyspeech3 != null) {
             word3 = skellyspeech3
         }
-        if (!skellyspeech4 == null) {
+        if (skellyspeech4 != null) {
             word4 = skellyspeech4
         }
-        if (!skellyspeech2 == null) {
+        if (skellyspeech2 != null) {
             word5 = skellyspeech5
         }
     }
@@ -229,11 +228,11 @@ namespace skellyAI {
     export let word5 = "me happy!"
 
     /**
-    * Makes skelly say a set string either with think format or lenth format.
-    * Skelly must exist for this block to do anything
-    *
-    * @param phrase describe parameter here, eg: "Fun!"
-    * @param skellyspeech5 describe parameter here, eg: "happy!"
+     * Makes skelly say a set string either with think format or lenth format.
+     * Skelly must exist for this block to do anything. if set to think
+     * do not make phrase longer than 8 characters or the text wil glitch.
+     *
+     * @param phrase the phrase that skelly will say
     */
     //% blockId=skellySay
     //% block="Skelly say $phrase $spot || $length"
@@ -253,7 +252,7 @@ namespace skellyAI {
         let skellyspeech = textsprite.create("" + phrase, 1, 15)
         skellyspeech.setStayInScreen(true)
         skellyspeech.setPosition(skelly.x + 1, skelly.y + 17)
-        skellyspeech.x += 2
+        skellyspeech.x += 10
         skellyspeech.setKind(SpriteKind.SkellySpeech)
         skellyspeech.lifespan = textlifespan;
         let textArrow = sprites.create(img`
@@ -321,7 +320,7 @@ namespace skellyAI {
      * @param bg background color of the text.
      * @param fg font color of the text.
     */
-    //% blockId=skellyColors
+    //% blockId=setSkellyColors
     //% block="set skelly $text text: $fg background: $bg"
     //% fg.shadow=colorindexpicker
     //% bg.shadow=colorindexpicker
@@ -374,25 +373,5 @@ namespace skellyAI {
     //% group="Utill"
     export function skellyIdleInterval(): number{
         return actionrun;
-    }
-
-    /**
-     * gets the color of the selected skelly speech type.
-     * 
-    */
-    //% blockId=skellyColors
-    //% block="get $colorType of $textType"
-    //% weight=40
-    //% blockGap=8
-    //% help=skellyAI/skelly-getcolors
-    //% group="Utill"
-    export function getSkellyColors(textType:SpotEnum, colorType:boolean): color {
-        if(textType==SpotEnum.Happy){
-            return happy_bg;
-        }else if(textType==SpotEnum.Think){
-            return think_bg;
-        }else{
-            return bubble_bg;
-        }
     }
 }
