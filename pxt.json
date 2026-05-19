@@ -1,5 +1,6 @@
 {
     "name": "Skelly",
+    "version": "1.0.0",
     "description": "adds a little skeleton in the corner of the screen that says stuff occasionally. has customizable speech.",
     "dependencies": {
         "device": "*",
